@@ -1,4 +1,6 @@
 " nvim config
+set number
+set relativenumber
 set encoding=UTF-8
 set tabstop=2
 set shiftwidth=2
