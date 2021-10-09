@@ -12,9 +12,9 @@ filetype plugin indent on
 
 " Theme
 syntax on
-colorscheme monokai
-colorscheme monokai_pro
-colorscheme monokai_soda
+" colorscheme monokai
+" colorscheme monokai_pro
+" colorscheme monokai_soda
 set background=dark
 set hidden
 set list
