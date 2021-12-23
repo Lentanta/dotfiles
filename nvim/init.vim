@@ -1,11 +1,14 @@
 " nvim config
-set number
-set relativenumber
-set encoding=UTF-8
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
+:set number
+:set relativenumber
+:set autoindent
+:set encoding=UTF-8
+:set tabstop=2
+:set shiftwidth=2
+:set softtabstop=2
+:set smarttab
+:set expandtab
+:set mouse=a
 
 filetype indent on
 filetype plugin indent on
@@ -27,6 +30,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tanvirtin/monokai.nvim'
+Plug 'vim-airline/vim-airline' "Vim status bottom bar
+Plug 'chun-yang/auto-pairs'
 
 call plug#end()
 
