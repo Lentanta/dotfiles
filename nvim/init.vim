@@ -27,16 +27,24 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline' " vim status bottom bar
+Plug 'vim-airline/vim-airline-themes' " themes for airline
 Plug 'chun-yang/auto-pairs'
-Plug 'sainnhe/sonokai'
+Plug 'sts10/vim-pink-moon'
 
 call plug#end()
+
+" Set colorsheme
+colorscheme pink-moon
 
 " NERDTree config
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+" Airline config
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
 
 " ========== Coc-vim setting START ==========
 " Use tab for trigger completion with characters ahead and navigate.
