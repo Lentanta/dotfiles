@@ -15,9 +15,6 @@ filetype plugin indent on
 
 " Theme
 syntax on
-" colorscheme monokai
-" colorscheme monokai_pro
-" colorscheme monokai_soda
 set background=dark
 set hidden
 set list
@@ -29,9 +26,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tanvirtin/monokai.nvim'
-Plug 'vim-airline/vim-airline' "Vim status bottom bar
+Plug 'vim-airline/vim-airline' " vim status bottom bar
 Plug 'chun-yang/auto-pairs'
+Plug 'sainnhe/sonokai'
 
 call plug#end()
 
