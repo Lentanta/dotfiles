@@ -10,10 +10,19 @@ return packer.startup(function(use)
 
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'tanvirtin/monokai.nvim'
 
+  -- Status line
+  use 'nvim-lualine/lualine.nvim'
+
+  -- Nvim tree
+  use 'kyazdani42/nvim-tree.lua'
+
+  -- Nvim treesitter
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
 end)
 
