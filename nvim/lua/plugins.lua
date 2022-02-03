@@ -29,6 +29,8 @@ return packer.startup(function(use)
 
   -- Cmp plugins
   use "hrsh7th/nvim-cmp"          -- The completion plugin
+  use "hrsh7th/cmp-nvim-lsp"      -- lsp completions
+  use "hrsh7th/cmp-nvim-lua"      -- nvim lua completions
   use "hrsh7th/cmp-buffer"        -- buffer completions
   use "hrsh7th/cmp-path"          -- path completions
   use "hrsh7th/cmp-cmdline"       -- cmdline completions
@@ -37,6 +39,10 @@ return packer.startup(function(use)
   -- Snippets
   use "L3MON4D3/LuaSnip"             -- snippet engine
   use "rafamadriz/friendly-snippets" -- bunch of snippets to use
+
+  -- LSP
+  use "neovim/nvim-lspconfig"           -- Install LSP
+  use "williamboman/nvim-lsp-installer" -- For simple LSP installer
 
 end)
 

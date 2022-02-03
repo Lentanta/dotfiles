@@ -9,6 +9,7 @@ o.termguicolors   = true
 o.encoding        = "utf-8"
 o.mouse           = "a"
 o.cmdheight       = 2
+o.updatetime      = 300 -- For faster update (defaut is 4000)
 
 o.autoindent      = true
 o.smartindent     = true
