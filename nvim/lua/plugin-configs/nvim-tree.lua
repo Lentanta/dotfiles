@@ -48,7 +48,7 @@ require("nvim-tree").setup({
       custom_only = false,
       list = {}
     },
-    number = true,
+    number = false,
     relativenumber = false,
     signcolumn = "yes"
   },

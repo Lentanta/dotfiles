@@ -1,10 +1,9 @@
 require("settings")
 require("plugins")
+require("keymaps")
 
 require("plugin-configs.lualine")
 require("plugin-configs.nvim-tree")
+require("plugin-configs.cmp")
 
-require("monokai").setup({
-  palette = require("monokai").soda
-})
-
+vim.cmd[[colorscheme gruvbox]]
