@@ -44,5 +44,11 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"           -- Install LSP
   use "williamboman/nvim-lsp-installer" -- For simple LSP installer
 
+  -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
 end)
 
