@@ -56,18 +56,17 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
     -- Tab for completion
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      local col = vim.fn.col('.') - 1
+
       if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
+        cmp.select_next_item(select_opts)
+      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
         fallback()
+      else
+        cmp.complete()
       end
-    end,
-    {"i","s",}),
+    end, {'i', 's'}),
 
     -- Shift Tab for completion
     ['<S-Tab>'] = function(fallback)
