@@ -55,9 +55,8 @@ local function on_attach(client, bufnr)
       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]], false)
+    end
   end
-end
-
 
 -- Setting for every language
 local enhance_server_opts = {
