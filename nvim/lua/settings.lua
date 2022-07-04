@@ -3,7 +3,7 @@ local o = vim.opt
 -- global options
 o.number          = true
 o.relativenumber  = true
-o.cursorline      = false
+o.cursorline      = true
 o.backup          = false
 o.termguicolors   = true
 o.encoding        = "utf-8"
@@ -24,5 +24,4 @@ o.shiftwidth      = 2
 o.list            = true
 o.listchars       = { tab = "»·", trail = "·" }
 o.clipboard       = "unnamedplus"
-o.paste           = true -- Paste from system
-
+-- o.paste           = true -- Paste from system
