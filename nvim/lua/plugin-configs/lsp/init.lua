@@ -1,5 +1,5 @@
--- require("lsp_installer")
 local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
 
 -- LSP icons
 local signs = {
@@ -11,7 +11,7 @@ local signs = {
 
 -- Set LSP icons
 for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name,{
+  vim.fn.sign_define(sign.name, {
     texthl = sign.name,
     text = sign.text,
     numhl = ""
@@ -19,7 +19,7 @@ for _, sign in ipairs(signs) do
 end
 
 -- Key mappings
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -49,41 +49,38 @@ local function on_attach(client, bufnr)
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
     [[
-      augroup lsp_document_highlight
-      autocmd! * <buffer>
-      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]], false)
-    end
+    augroup lsp_document_highlight
+    autocmd! * <buffer>
+    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    augroup END
+    ]] , false)
   end
+end
 
--- Setting for every language
-local enhance_server_opts = {
-  ["sumneko_lua"] = function(installer_opts)
-    installer_opts.settings = {
-      Lua = {
-        diagnostics = {
-          globals = {'vim'},
-        },
-        workspace = {
-          -- Make the server aware of Neovim runtime files
-          library = vim.api.nvim_get_runtime_file("", true),
-        },
+lspconfig["sumneko_lua"].setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
       },
-    }
-  end,
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
 
--- LSP installer configs
-lsp_installer.on_server_ready(function(server)
-  local installer_opts = {
-    on_attach = on_attach
-  }
 
-  if enhance_server_opts[server.name] then
-    enhance_server_opts[server.name](installer_opts)
-  end
-
-  server:setup(installer_opts)
-end)

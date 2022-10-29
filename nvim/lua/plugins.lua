@@ -46,7 +46,7 @@ return packer.startup(function(use)
 		run = ':TSUpdate'
 	}
 
-	-- Cmp plugins
+	-- Cmp plugins (This is support for compltetion stuffs)
 	use "hrsh7th/nvim-cmp"          -- The completion plugin
 	use "hrsh7th/cmp-nvim-lsp"      -- lsp completions
 	use "hrsh7th/cmp-nvim-lua"      -- nvim lua completions
@@ -59,9 +59,11 @@ return packer.startup(function(use)
 	use "L3MON4D3/LuaSnip"             -- snippet engine
 	use "rafamadriz/friendly-snippets" -- bunch of snippets to use
 
-	-- LSP
+	-- [LSP] --
+  -- manage external editor tooling such as LSP servers, DAP servers, linters, and formatters.
+  use 'williamboman/mason.nvim'
+  use "williamboman/mason-lspconfig.nvim"
 	use "neovim/nvim-lspconfig"           -- Install LSP
-	use "williamboman/nvim-lsp-installer" -- For simple LSP installer
 
 	-- Telescope
 	use {

@@ -24,4 +24,4 @@ o.shiftwidth      = 2
 o.list            = true
 o.listchars       = { tab = "»·", trail = "·" }
 o.clipboard       = "unnamedplus"
--- o.paste           = true -- Paste from system
+
