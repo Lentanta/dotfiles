@@ -18,8 +18,5 @@ keymap(normal, "<Esc>", ":nohlsearch<CR>", opts)
 keymap(normal, "<C-n>", ":NvimTreeToggle<CR>", opts)
 keymap(normal, "<C-f>", ":NvimTreeFocus<CR>", opts)
 
--- Telescope
-keymap(
-  normal, 
-  "<leader>ff", 
-  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
+-- keymap(normal, "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
+keymap(normal, "<A-i>", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
