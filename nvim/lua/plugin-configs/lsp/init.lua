@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local utils = require("../../utils")
 
 -- Suport methods
 local FORMATTING = "textDocument/formatting"
@@ -18,9 +19,12 @@ end
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local create_buffer_options = function(noremap, silent, buffer)
-  return { noremap = noremap, silent = silent, buffer = buffer }
+  return {
+    noremap = noremap,
+    silent = silent,
+    buffer = buffer,
+  }
 end
-local normal = "n"
 
 -- add to your shared on_attach callback
 local on_attach = function(client, bufnr)
@@ -29,12 +33,18 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   local bufopts = create_buffer_options(true, true, bufnr)
-  local set_key_map = vim.keymap.set
+  local keymap = utils.keymap
+  local normal = utils.normal_mode
+  local format = function()
+    vim.lsp.buf.format({ async = true })
+  end
 
-  set_key_map(normal, "gD", vim.lsp.buf.declaration, bufopts)
-  set_key_map(normal, "gd", vim.lsp.buf.definition, bufopts)
-  set_key_map(normal, "K", vim.lsp.buf.hover, bufopts)
-  set_key_map(normal, "gi", vim.lsp.buf.implementation, bufopts)
+  keymap(normal, "gD", vim.lsp.buf.declaration, bufopts)
+  keymap(normal, "gd", vim.lsp.buf.definition, bufopts)
+  keymap(normal, "K", vim.lsp.buf.hover, bufopts)
+  keymap(normal, "gi", vim.lsp.buf.implementation, bufopts)
+  keymap(normal, "<A-i>", format, bufopts)
+  keymap(normal, "<leader>f", format, bufopts)
 
   -- If client support formatting
   if client.supports_method(FORMATTING) then
