@@ -1,15 +1,15 @@
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-
+local utils = require("utils")
 --Remap space as leader key
+
+local keymap = utils.keymap
+local opts = utils.opts
+
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Modes
-local normal = "n"
-local insert = "i"
-local visual = "v"
+local normal = utils.normal_mode
 
 -- Remove search hightlight
 keymap(normal, "<Esc>", ":nohlsearch<CR>", opts)
@@ -18,6 +18,5 @@ keymap(normal, "<Esc>", ":nohlsearch<CR>", opts)
 keymap(normal, "<C-n>", ":NvimTreeToggle<CR>", opts)
 keymap(normal, "<C-f>", ":NvimTreeFocus<CR>", opts)
 
--- keymap(normal, "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
 keymap(normal, "<A-i>", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
 keymap(normal, "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
