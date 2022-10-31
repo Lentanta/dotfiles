@@ -20,3 +20,4 @@ keymap(normal, "<C-f>", ":NvimTreeFocus<CR>", opts)
 
 -- keymap(normal, "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
 keymap(normal, "<A-i>", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
+keymap(normal, "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)

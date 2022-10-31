@@ -10,4 +10,4 @@ require("plugin-configs.mason")
 require("plugin-configs.null-ls")
 require("plugin-configs.telescope")
 
-vim.cmd[[colorscheme gruvbox]]
+require("plugin-configs.colorshceme")
