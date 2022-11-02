@@ -78,6 +78,10 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+})
+
 -- LSP icons
 local signs = {
   { name = "DiagnosticSignError", text = "" },
