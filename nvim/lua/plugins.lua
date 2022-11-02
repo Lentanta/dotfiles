@@ -67,6 +67,9 @@ return packer.startup(function(use)
   -- For formatting code
   use("jose-elias-alvarez/null-ls.nvim")
 
+  -- Indent blankline
+  use("lukas-reineke/indent-blankline.nvim")
+
   -- For auto pairs
   use("windwp/nvim-autopairs")
 

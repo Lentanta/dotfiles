@@ -10,5 +10,6 @@ require("plugin-configs.mason")
 require("plugin-configs.null-ls")
 require("plugin-configs.telescope")
 require("plugin-configs.autopairs")
+require("plugin-configs.blankline")
 
 require("plugin-configs.colorshceme")
