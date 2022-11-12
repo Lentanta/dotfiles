@@ -26,6 +26,10 @@ local create_buffer_options = function(noremap, silent, buffer)
   }
 end
 
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
 -- add to your shared on_attach callback
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
@@ -63,8 +67,10 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup for each languages
+-- For Lua
 lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -78,8 +84,22 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
+-- For typescript
 lspconfig.tsserver.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- For CSS
+lspconfig.cssls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- For HTML
+lspconfig.html.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 -- LSP icons
