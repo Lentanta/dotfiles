@@ -1,4 +1,5 @@
-echo "Config script"
+#!/bin/zsh
+echo "Running config setup"
 
 echo "Linking alacritty config file"
 ln -s ~/dotfiles/.alacritty.yml ~/.alacritty.yml
@@ -8,20 +9,18 @@ ln -s ~/dotfiles/.alacritty.yml ~/.alacritty.yml
 
 # checking and symlink nvim folder
 echo "Checking if nvim folder exits"
-if [ -d "~/.config/nvim" ]
-then
-  echo "Folder exits"
+if [ -d "~/.config/nvim" ]; then
+	echo "Folder exits"
 else
-  echo "Folder not exits"
-  ln -s ~/dotfiles/nvim ~/.config/
+	echo "Folder not exits"
+	ln -s ~/dotfiles/nvim ~/.config/
 fi
 
 # Checking and symlink tmux config file
 echo "Checking tmux config file"
-if [ -e "~/.tmux.conf" ]
-then
-  echo "File exits"
+if [ -e "~/.tmux.conf" ]; then
+	echo "File exits"
 else
-  echo "File not exits"
-  ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+	echo "File not exits"
+	ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 fi

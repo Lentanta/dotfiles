@@ -1,7 +1,6 @@
 # checking and symlink nvim folder
 echo "Checking if nvim folder exits"
-if [ -d ~/.config/nvim ]
-then
+if [ -d ~/.config/nvim ]; then
   echo "Folder exits"
 else
   echo "Folder not exits"

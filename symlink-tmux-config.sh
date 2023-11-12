@@ -1,5 +1,6 @@
 # Checking and symlink tmux config file
 echo "Checking tmux config file"
+
 if [ -f ~/.tmux.conf ] || [ -L ~/.tmux.conf ]; then
   echo "File exits"
 
