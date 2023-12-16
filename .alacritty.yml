@@ -433,6 +433,7 @@ shell:
     - --login
     - -c
     - "tmux attach || tmux"
+    - echo "HELLO TAM""
 
 # Startup directory
 #
