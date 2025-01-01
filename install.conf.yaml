@@ -1,0 +1,24 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config/nvim:
+      path: nvim 
+      create: true
+      force: true
+    ~/.wezterm.lua:
+      path: .wezterm.lua
+      create: true
+      force: true
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  # Install ZSH shell and Oh My Zsh
+  - sudo dnf install -y zsh
+  - [sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"]
+  # Install nvm
+  - [curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash]
+
