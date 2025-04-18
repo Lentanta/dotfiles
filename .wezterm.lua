@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "Gruvbox"
 config.color_scheme = "Gruvbox dark, medium (base16)"
+config.enable_wayland = true
 config.font_size = 15.0
 
 -- Config launch menu
